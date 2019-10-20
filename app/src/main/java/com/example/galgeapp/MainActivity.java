@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startknap = findViewById(R.id.startbutton);
         bhighscore = findViewById(R.id.buttonhighscore);
 
-        //startknap.setText("Begin");
+
         startknap.setOnClickListener(this);
         bhighscore.setOnClickListener(this);
+        helpknap.setOnClickListener(this);
 
 
 
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 break;
             case R.id.buttonHelp:
+                Intent help = new Intent(this, Help.class);
+                startActivity(help);
                 break;
             case R.id.buttonhighscore:
                 Intent hs = new Intent(this, Highscore.class);
