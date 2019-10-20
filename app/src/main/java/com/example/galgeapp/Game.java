@@ -1,6 +1,7 @@
 package com.example.galgeapp;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,8 +47,12 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         hangman.setImageResource(R.drawable.galge);
 
 
+
         //Guess word
         guessbutton.setOnClickListener(this);
+
+
+
 
     }
 
@@ -61,9 +66,11 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         if (galgelogik.erSpilletVundet()) {
             info.setText("You won!");
+            SessionInfo.save(galgelogik.getAntalForkerteBogstaver(), galgelogik.getOrdet());
         }
         if (galgelogik.erSpilletTabt()) {
             info.setText("You lost! The word was: " + galgelogik.getOrdet());
+            SessionInfo.save(galgelogik.getAntalForkerteBogstaver(), galgelogik.getOrdet());
         }
 
         switch (galgelogik.getAntalForkerteBogstaver()){
@@ -100,6 +107,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+
+
     @Override
     public void onClick(View view) {
         String guess = guessbox.getText().toString();
@@ -117,11 +126,6 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    public void save() {
 
-
-
-
-    }
 
 }

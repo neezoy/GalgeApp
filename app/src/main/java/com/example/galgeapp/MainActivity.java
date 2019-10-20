@@ -10,17 +10,25 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button startknap;
     Button helpknap;
+    Button bhighscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startknap = findViewById(R.id.startbutton);
-        //startknap.setText("Begin");
-        startknap.setOnClickListener(this);
+
 
         helpknap = findViewById(R.id.buttonHelp);
+        startknap = findViewById(R.id.startbutton);
+        bhighscore = findViewById(R.id.buttonhighscore);
+
+        //startknap.setText("Begin");
+        startknap.setOnClickListener(this);
+        bhighscore.setOnClickListener(this);
+
+
+
 
 
     }
@@ -35,6 +43,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.buttonHelp:
                 break;
+            case R.id.buttonhighscore:
+                Intent hs = new Intent(this, Highscore.class);
+                startActivity(hs);
+                break;
+
+
         }
 
     }
