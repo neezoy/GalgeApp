@@ -36,7 +36,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         //Get ord fra dr
         //galgelogik.hentOrdFraDr();
-        AsyncInternetDataTransfer internetOrd = new AsyncInternetDataTransfer(galgelogik);
+        AsyncInternetDataTransfer internetOrd = new AsyncInternetDataTransfer(galgelogik, wordtoguess);
         internetOrd.execute();
 
 
@@ -113,6 +113,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        //wordtoguess.setText(galgelogik.getSynligtOrd());
         String guess = guessbox.getText().toString();
         galgelogik.gætBogstav(guess);
         guessbox.setText("");
