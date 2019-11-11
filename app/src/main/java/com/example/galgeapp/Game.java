@@ -1,5 +1,6 @@
 package com.example.galgeapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,16 +33,13 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         hangman = findViewById(R.id.hangman);
         wordtoguess = findViewById(R.id.wordtoguess);
         info = findViewById(R.id.infoview);
-/*
+
         //Get ord fra dr
-        if (gameActive == false){
-            try {
-                galgelogik.hentOrdFraDr();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-*/
+        //galgelogik.hentOrdFraDr();
+        AsyncInternetDataTransfer internetOrd = new AsyncInternetDataTransfer(galgelogik);
+        internetOrd.execute();
+
+
         //initialization
         wordtoguess.setText(galgelogik.getSynligtOrd());
         hangman.setImageResource(R.drawable.galge);
@@ -65,12 +63,16 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         info.setText("Used: " + galgelogik.getBrugteBogstaver());
 
         if (galgelogik.erSpilletVundet()) {
-            info.setText("You won!");
+            //info.setText("You won!");
             SessionInfo.save(galgelogik.getAntalForkerteBogstaver(), galgelogik.getOrdet());
+            Intent win = new Intent(this, Winner.class);
+            startActivity(win);
         }
         if (galgelogik.erSpilletTabt()) {
-            info.setText("You lost! The word was: " + galgelogik.getOrdet());
+            //info.setText("You lost! The word was: " + galgelogik.getOrdet());
             SessionInfo.save(galgelogik.getAntalForkerteBogstaver(), galgelogik.getOrdet());
+            Intent lost = new Intent(this, Looser.class);
+            startActivity(lost);
         }
 
         switch (galgelogik.getAntalForkerteBogstaver()){

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Help"></activity>
+        <activity android:name=".Looser"></activity>
+        <activity android:name=".Winner" />
+        <activity android:name=".Help" />
         <activity android:name=".Highscore" />
         <activity android:name=".MainActivity">
             <intent-filter>
