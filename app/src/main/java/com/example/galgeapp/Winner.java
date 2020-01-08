@@ -39,15 +39,14 @@ public class Winner extends AppCompatActivity implements View.OnClickListener {
         tryagain.setOnClickListener(this);
 
         //music yay!
-        player = MediaPlayer.create(this, R.)
+        MediaPlayer winsound = MediaPlayer.create(this, R.raw.win);
+        winsound.start();
 
 
         //confetti
 
         Handler handler = new Handler();
-        handler.postDelayed(task, 3000);
-
-
+        handler.postDelayed(task, 2000);
 
 
     }

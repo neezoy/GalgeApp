@@ -1,5 +1,8 @@
 package com.example.galgeapp;
 
+
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +23,14 @@ public class SessionInfo {
 
         String temp = "Word: " + answer + " | " + failures + " failures";
         highscoreAL.add(temp);
+
+
+
+        //String json = new Gson().toJson(highscoreAL);
+
     }
+
+
 
 
 

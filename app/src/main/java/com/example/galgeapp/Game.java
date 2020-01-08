@@ -1,6 +1,7 @@
 package com.example.galgeapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -123,9 +124,23 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    public void load() {
+
+    // Preference manager
+    SharedPreferences pref = getSharedPreferences("savedData", MODE_PRIVATE);
+    SharedPreferences.Editor editor = pref.edit();
 
 
+
+
+
+    public void writeToFile() {
+        
+
+    }
+
+
+
+    public void readFromFile() {
 
     }
 

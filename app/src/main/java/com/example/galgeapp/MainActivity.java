@@ -31,10 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         helpknap.setOnClickListener(this);
 
 
-//TEST DEL LATER
-        Intent wintest = new Intent(this, Winner.class);
-        startActivity(wintest);
-
 
     }
 
