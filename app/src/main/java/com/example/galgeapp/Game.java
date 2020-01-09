@@ -66,6 +66,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         if (galgelogik.erSpilletVundet()) {
             //info.setText("You won!");
             SessionInfo.save(galgelogik.getAntalForkerteBogstaver(), galgelogik.getOrdet());
+            writeToFile();
             Intent win = new Intent(this, Winner.class);
             startActivity(win);
         }
