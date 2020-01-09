@@ -2,6 +2,7 @@ package com.example.galgeapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
@@ -16,20 +17,14 @@ public class Highscore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
 
-    //demo data
-        SessionInfo.highscoreAL.add("Word: Cykel | 3 Failures");
-        SessionInfo.highscoreAL.add("Word: bus | 3 Failures");
-        SessionInfo.highscoreAL.add("Word: tog | 5 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
-        SessionInfo.highscoreAL.add("Word: hat | 1 Failures");
+
+
+
+        // Preference manager
+        SharedPreferences pref = getSharedPreferences("FILE", MODE_PRIVATE);
+
+        //load previous data
+        String scoreData = pref.getString("saveData", "empty");
 
 
 

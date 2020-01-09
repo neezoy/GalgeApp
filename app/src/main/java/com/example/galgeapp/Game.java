@@ -72,6 +72,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         if (galgelogik.erSpilletTabt()) {
             //info.setText("You lost! The word was: " + galgelogik.getOrdet());
             SessionInfo.save(galgelogik.getAntalForkerteBogstaver(), galgelogik.getOrdet());
+            writeToFile();
             Intent lost = new Intent(this, Looser.class);
             startActivity(lost);
         }
@@ -125,24 +126,34 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     }
 
 
-    // Preference manager
-    SharedPreferences pref = getSharedPreferences("savedData", MODE_PRIVATE);
-    SharedPreferences.Editor editor = pref.edit();
+
 
 
 
 
 
     public void writeToFile() {
+        // Preference manager
+        SharedPreferences pref = getSharedPreferences("FILE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+
+        //load previous data
+        String oldData = pref.getString("saveData", "empty");
+
+
+
+        //savedata fomat
+        String session = SessionInfo.word + " " + SessionInfo.mistakes + "," + oldData;
+
+        editor.putString("saveData", session);
+
+        editor.apply();
+
         
 
     }
 
 
-
-    public void readFromFile() {
-
-    }
 
 
 
